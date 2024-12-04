@@ -1,83 +1,111 @@
-# Welcome to Jekyll-Paper!
+# This is the default format.
+# For more see: http://jekyllrb.com/docs/permalinks/
+permalink: pretty
+paginate: 1
+paginate_path: "/blog/page:num/"
+
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+highlighter: rouge
+
+# Themes are encouraged to use these universal variables
+# so be sure to set them if your theme uses them.
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
+title : Soot Spirits
+tagline: Code, Science, Philosophy, Humor
+author :
+  name : Abhishek Nagekar
+  email : abhishek@nagekar.com
+  github : abhn
+  twitter : abhisheknagekar
+  feedburner : AbhishekN
+
+# The production_url is only used when full-domain names are needed
+# such as sitemap.txt
+# Most places will/should use BASE_PATH to make the urls
 #
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# If you have set a CNAME (pages.github.com) set your custom domain here.
+# Else if you are pushing to username.github.io, replace with your username.
+# Finally if you are pushing to a GitHub project page, include the project name at the end.
+#
+production_url : https://www.nagekar.com
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Your title
-email: your-email@example.com
-name: Your name
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here.
-keywords: [Your keywords]
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-domain: "example.com" # the domain name for your site, e.g. example.com
-language: en
-# Supported languages list:
-# en: English
-# de: Deutsche (German)
-# es: Español (Spanish)
-# fr: Français (French)
-# ja: 日本語 (Japanese)
-# pt: Português (Portuguese)
-# zh-cn: 简体中文 (Simplified Chinese)
-# zh-tw: 繁體中文 (Traditional Chinese)
-# ko : 한국어(Korean)
+# All Jekyll-Bootstrap specific configurations are namespaced into this hash
+#
+JB :
+  version : 0.3.0
 
-analytics:   # the Google Analytics property ID, e.g. UA-XXXXX-Y
+  # All links will be namespaced by BASE_PATH if defined.
+  # Links in your website should always be prefixed with {{BASE_PATH}}
+  # however this value will be dynamically changed depending on your deployment situation.
+  #
+  # CNAME (http://yourcustomdomain.com)
+  #   DO NOT SET BASE_PATH
+  #   (urls will be prefixed with "/" and work relatively)
+  #
+  # GitHub Pages (http://username.github.io)
+  #   DO NOT SET BASE_PATH
+  #   (urls will be prefixed with "/" and work relatively)
+  #
+  # GitHub Project Pages (http://username.github.io/project-name)
+  #
+  #   A GitHub Project site exists in the `gh-pages` branch of one of your repositories.
+  #  REQUIRED! Set BASE_PATH to: http://abhn.github.io/
+  #
+  # CAUTION:
+  #   - When in Localhost, your site will run from root "/" regardless of BASE_PATH
+  #   - Only the following values are falsy: ["", null, false]
+  #   - When setting BASE_PATH it must be a valid url.
+  #     This means always setting the protocol (http|https) or prefixing with "/"
+  BASE_PATH : false
 
-paginate: 25
-paginate_path: "/page:num/"
+  # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
+  # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
+  #
+  # Override this by defining an absolute path to assets here.
+  # ex:
+  #   http://s3.amazonaws.com/yoursite/themes/watermelon
+  #   /assets
+  #
+  ASSET_PATH : false
 
-comments: false  # enable comments
-disqus:          # disqus account
+  # These paths are to the main pages Jekyll-Bootstrap ships with.
+  # Some JB helpers refer to these paths; change them here if needed.
+  #
+  # archive_path: /archive.html
+  # categories_path : /categories.html
+  tags_path : /tags.html
+  atom_path : /atom.xml
+  rss_path : /rss.xml
 
-mathjax: true # Mathematics
-mermaid: true # Diagrams
+  # Settings for comments helper
+  # Set 'provider' to the comment provider you want to use.
+  # Set 'provider' to false to turn commenting off globally.
+  #
+  comments :
+    provider : disqus
+    disqus :
+      short_name : nagekar
 
-permalink: /:year/:month/:day/:title
+  # Settings for analytics helper
+  # Set 'provider' to the analytics provider you want to use.
+  # Set 'provider' to false to turn analytics off globally.
+  #
 
-sass:
-  sass_dir: _sass
-  style: expanded # compressed, compact, expanded or compressed
+  # Settings for sharing helper.
+  # Sharing is for things like tweet, plusone, like, reddit buttons etc.
+  # Set 'provider' to the sharing provider you want to use.
+  # Set 'provider' to false to turn sharing off globally.
+  #
+  sharing :
+    provider : false
 
-# Category settings
-jekyll-archives:
-  enabled: 
-    - categories
-    - tags
-  layout: archive
-  permalinks:
-    category: /category/:name/
-    tag: /tag/:name/
-
-# Build settings
-markdown: kramdown
-plugins:
-  - jekyll-feed
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-archives
-  - jekyll-seo-tag
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+  # Settings for all other include helpers can be defined by creating
+  # a hash with key named for the given helper. ex:
+  #
+  #   pages_list :
+  #     provider : "custom"
+  #
+  # Setting any helper's provider to 'custom' will bypass the helper code
+  # and include your custom code. Your custom file must be defined at:
+  #   ./_includes/custom/[HELPER]
+  # where [HELPER] is the name of the helper you are overriding.
